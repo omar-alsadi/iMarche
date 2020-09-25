@@ -1,0 +1,36 @@
+* {
+    box-sizing: border-box;
+}
+
+html {
+    font-size: 62.5%;
+}
+
+@media only screen and (max-width: 900px) {
+    html {
+        font-size: 50%;
+    }
+}
+
+@media only screen and (max-width: 480px) {
+    html {
+        font-size: 42.5%;
+    }
+}
+
+body {
+    font-family: 'Open Sans Condensed', sans-serif;
+    font-size: 1.6rem;
+
+    /* padding: 2rem 6rem; */
+}
+
+a {
+    color: white;
+    font-weight: bold;
+    text-decoration: none;
+}
+
+#root {
+    margin-top: 100px;
+}

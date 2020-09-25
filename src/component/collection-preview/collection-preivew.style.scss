@@ -1,0 +1,50 @@
+.collection-preview {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 30px;
+
+    .preview {
+        display: flex;
+        justify-content: space-between;
+
+        @media only screen and (max-width: 680px) {
+            display: grid;
+            justify-content: none;
+            grid-template-columns: repeat(auto-fit, minmax(25rem, 1fr));
+            justify-items: center;
+        }
+    }
+}
+
+.collection-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    .title {
+        font-size: 28px;
+        margin-bottom: 25px;
+        width: 15rem;
+
+        @media only screen and (max-width: 680px) {
+            text-align: center;
+        }
+    }
+
+    .show-more {
+        cursor: pointer;
+        color: #ef000d;
+        opacity: .9;
+        transition: all .2s ease-in-out;
+
+        &:hover {
+            opacity: 1;
+            transform: translateY(-1px);
+            text-decoration: underline;
+        }
+
+        &:active {
+            transform: translateY(0);
+        }
+    }
+}
