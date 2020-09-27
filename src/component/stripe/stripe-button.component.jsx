@@ -1,13 +1,18 @@
 import React from 'react';
 import StripeCheckout from 'react-stripe-checkout'
 
-const StripeButtonCheckout = ({ price }) => {
+import { connect } from 'react-redux'
+import { purchaseSuccess, clearCart } from './../redux/cart/cart.actions'
+
+const StripeButtonCheckout = ({ purchaseSuccess, clearCart, price }) => {
     const priceForStripe = price * 100;
     const publishableKey = 'pk_test_51GxLjlEEuVobzH2FCXXqSrMKlsCqU8fG7MKrk9cYQbDY6SEuUmMJmCOzbq8vVefP6jnhedziMphd4hqdHKlhdAIu00AoShodse'
 
     const onToken = token => {
-        // console.log(token)
+        console.log(token)
         alert("Payment Successful");
+        purchaseSuccess();
+        clearCart();
     }
 
     return (
@@ -25,5 +30,9 @@ const StripeButtonCheckout = ({ price }) => {
     )
 }
 
+const mapDispatchToProps = dispatch => ({
+    purchaseSuccess: () => dispatch(purchaseSuccess()),
+    clearCart: () => dispatch(clearCart())
+})
 
-export default StripeButtonCheckout
+export default connect(null, mapDispatchToProps)(StripeButtonCheckout)

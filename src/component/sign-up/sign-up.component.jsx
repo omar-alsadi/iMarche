@@ -23,13 +23,6 @@ const SignUp = ({ signUpStart }) => {
     const handleSubmit = async event => {
         event.preventDefault();
 
-
-
-        if (password !== confirmPassword) {
-            alert("The confirm password doesn't match the password");
-            return;
-        }
-
         signUpStart({ displayName, email, password })
 
     }
@@ -78,6 +71,9 @@ const SignUp = ({ signUpStart }) => {
                     label="Confirm Password"
                     required
                 />
+                {
+                    (password !== confirmPassword) ? <div className='error-text'>The passwords do not match</div> : null
+                }
                 <SignButton type="submit">SIGN UP</SignButton>
             </form>
         </div>

@@ -10,7 +10,7 @@ import { googleSignInStart, emailSignInStart } from '../redux/user/user.action'
 
 import './sign-in.style.scss'
 
-const SignIn = ({ emailSignInStart, googleSignInStart }) => {
+const SignIn = ({ errorExist, emailSignInStart, googleSignInStart }) => {
 
 
     const [userCredentials, setUserCredentials] = useState({
@@ -22,8 +22,6 @@ const SignIn = ({ emailSignInStart, googleSignInStart }) => {
 
     const handleSubmit = async event => {
         event.preventDefault();
-
-
 
         emailSignInStart(email, password);
 
@@ -61,6 +59,7 @@ const SignIn = ({ emailSignInStart, googleSignInStart }) => {
                     handleChange={handleChange}
                 />
                 {/* <label>Password:</label> */}
+                {errorExist ? <div className='error-text'>The email or password is incorrect</div> : null}
                 <div className="buttons">
                     <SignButton type='submit'>Sign In</SignButton>
                     <CustomButton type='button' onClick={googleSignInStart} isGoogleButton>Sign In with Google</CustomButton>
@@ -70,10 +69,13 @@ const SignIn = ({ emailSignInStart, googleSignInStart }) => {
     )
 }
 
+const mapStateToProps = ({ user: { errorExist } }) => ({
+    errorExist
+})
 
 const mapDispatchToProps = dispatch => ({
     googleSignInStart: () => dispatch(googleSignInStart()),
     emailSignInStart: (email, password) => dispatch(emailSignInStart({ email, password }))
 })
 
-export default connect(null, mapDispatchToProps)(SignIn)
+export default connect(mapStateToProps, mapDispatchToProps)(SignIn)

@@ -4,6 +4,7 @@ import { addItemToCart, removeItemFromCart } from './cart.util'
 
 const INITIAL_STATE = {
     hidden: true,
+    purchaseSuccess: false,
     cartItems: []
 }
 
@@ -31,11 +32,17 @@ const cartReducer = (state = INITIAL_STATE, action) => {
                     cartItem => cartItem.id !== action.payload.id
                 )
             }
+        case CartActionTypes.PURCHASE_SUCCESS:
+            return {
+                ...state,
+                purchaseSuccess: true,
+            }
         case CartActionTypes.CLEAR_CART:
             return {
                 ...state,
                 cartItems: [],
-                hidden: true
+                hidden: true,
+                purchaseSuccess: false
             }
         default:
             return state

@@ -22,3 +22,7 @@ export const clearItemFromCart = item => ({
 export const clearCart = () => ({
     type: CartActionTypes.CLEAR_CART
 })
+
+export const purchaseSuccess = () => ({
+    type: CartActionTypes.PURCHASE_SUCCESS
+})

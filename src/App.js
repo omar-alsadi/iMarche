@@ -7,7 +7,8 @@ import Footer from './component/footer/footer.component'
 import { connect } from 'react-redux'
 import { createStructuredSelector } from 'reselect'
 
-import { selectCurrentUser } from './component/redux/user/user.selector'
+import { selectCurrentUser, selectErrorExist } from './component/redux/user/user.selector'
+import { selectPurchaseSuccess } from './component/redux/cart/cart.selectors'
 
 import { checkUserSession } from './component/redux/user/user.action'
 
@@ -27,11 +28,15 @@ const CheckoutPage = lazy(() => import('./component/pages/checkout/checkout.comp
 const AboutPage = lazy(() => import('./component/pages/about/about.component'));
 const SignInAndSignUp = lazy(() => import('./component/pages/sign-in-and-sign-up/sign-in-and-sign-up.component'))
 
-const App = ({ checkUserSession, currentUser }) => {
+const App = ({ checkUserSession, currentUser, errorExist, purchaseSuccess }) => {
 
   useEffect(() => {
     checkUserSession()
   }, [checkUserSession])
+
+  console.log(purchaseSuccess);
+  console.log(errorExist);
+  console.log(currentUser)
 
   return (
     <div>
@@ -42,7 +47,11 @@ const App = ({ checkUserSession, currentUser }) => {
           <Suspense fallback={<Spinner />}>
             <Route exact path='/' component={HomePage} />
             <Route path='/shop' component={ShopPage} />
-            <Route exact path='/checkout' component={CheckoutPage} />
+            {/* <Route exact path='/checkout' component={CheckoutPage} /> */}
+            <Route exact path='/checkout'
+              render={() => purchaseSuccess ? <Redirect to='/' />
+                : <CheckoutPage />
+              } />
             <Route exact path='/signin'
               render={() => currentUser ? <Redirect to='/' />
                 : <SignInAndSignUp />
@@ -59,6 +68,8 @@ const App = ({ checkUserSession, currentUser }) => {
 
 const mapStateToProps = createStructuredSelector({
   currentUser: selectCurrentUser,
+  errorExist: selectErrorExist,
+  purchaseSuccess: selectPurchaseSuccess,
 })
 
 const mapDispatchToProps = dispatch => ({
