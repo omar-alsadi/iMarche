@@ -25,7 +25,7 @@ const Header = ({ currentUser, hidden, signOutStart }) => (
                 SHOP
             </Link>
             <Link className='option' to='/about'>
-                About
+                ABOUT
             </Link>
             {
                 currentUser ?
