@@ -8,9 +8,7 @@ const StripeButtonCheckout = ({ purchaseSuccess, clearCart, price }) => {
     const priceForStripe = price * 100;
     const publishableKey = 'pk_test_51GxLjlEEuVobzH2FCXXqSrMKlsCqU8fG7MKrk9cYQbDY6SEuUmMJmCOzbq8vVefP6jnhedziMphd4hqdHKlhdAIu00AoShodse'
 
-    const onToken = token => {
-        console.log(token)
-        alert("Payment Successful");
+    const onToken = () => {
         purchaseSuccess();
         clearCart();
     }

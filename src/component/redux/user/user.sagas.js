@@ -44,7 +44,6 @@ export function* signInWithEmail({ payload: { email, password } }) {
     }
 }
 
-
 // to check if user exist or not
 export function* isUserAuthenticated() {
     try {
