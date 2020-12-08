@@ -1,12 +1,202 @@
-.homepage {
+.section {
+    text-transform: uppercase;
+    margin: 8rem 0;
+    line-height: 2;
+    letter-spacing: .1rem;
+    text-align: center;
+
+    .title {
+        font-size: 3rem;
+        font-weight: 800;
+    }
+}
+
+.section__banner {
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    width: 100%;
+    opacity: .9;
+    height: 75vh;
+    display: grid;
+    grid-template-columns: 8rem repeat(2, 1fr) 8rem;
+    align-items: center;
+    justify-items: center;
+
+    &-1 {
+        background-image: url("https://i.ibb.co/JRBkSgZ/bakery-section.jpg");
+    }
+
+    &-2 {
+        background-image: url("https://i.ibb.co/1Z68fHd/fruits.jpg");
+    }
+
+    &-3 {
+        background-image: url("https://i.ibb.co/R4MgxSw/meats.jpg");
+        margin-bottom: 10rem;
+
+        span {
+            color: white;
+            text-shadow: 5px 5px black;
+            text-align: center;
+            font-size: 60px;
+            font-weight: 800;
+            grid-column: 1/ -1;
+
+            @media screen and (max-width: 600px) {
+                font-size: 45px;
+                text-shadow: 4px 3px black;
+            }
+
+            @media screen and (max-width: 400px) {
+                font-size: 35px;
+            }
+        }
+    }
+}
+
+.section-text {
     display: flex;
     flex-direction: column;
     align-items: center;
-    max-width: 1200px;
-    padding: 3rem 6rem;
-    margin: 0 auto;
+    justify-content: center;
+    height: auto;
+    background-color: rgba(255, 255, 255, 0.7);
+    font-size: 20px;
+    max-width: 500px;
+    font-weight: 600;
+    border-radius: 10px;
+    padding: 0rem 3rem;
 
-    @media only screen and (max-width: 375px) {
-        padding: 2rem 4rem;
+    @media screen and (max-width: 1100px) {
+        font-size: 16px;
+    }
+
+    @media screen and (max-width: 600px) {
+        max-width: 400px;
+    }
+
+    @media screen and (max-width: 500px) {
+        max-width: 300px;
+    }
+}
+
+.catagories-title {
+    margin: 0 auto;
+    font-size: 36px;
+    font-weight: bold;
+
+    @media screen and (max-width: 480px) {
+        font-size: 24px;
+    }
+}
+
+.details-wrapper {
+    display: flex;
+    justify-content: space-evenly;
+    align-content: center;
+    padding: 5rem;
+
+    @media screen and (max-width: 600px) {
+        flex-direction: column;
+    }
+
+    .details-content {
+        height: 170px;
+        width: 100%;
+        justify-items: center;
+        align-items: center;
+
+        @media screen and (max-width: 600px) {
+            height: 130px;
+            width: 100%;
+            justify-items: center;
+            align-items: center;
+            padding: 3rem;
+            margin-bottom: 8rem;
+        }
+    }
+}
+
+.logo-content {
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: contain;
+
+    &-1 {
+        background-image: url("https://i.ibb.co/Gtt4Y0m/unnamed.png");
+        height: 70%;
+    }
+
+    &-2 {
+        background-image: url("https://i.ibb.co/3FnXKHB/proudlycanadian.png");
+        height: 70%;
+    }
+}
+
+.text-content {
+    font-size: 2rem;
+    padding: 3rem;
+    align-content: center;
+}
+
+.side-right {
+    grid-column: 3/ 4;
+
+    @media screen and (max-width: 680px) {
+        grid-column: 1/ -1;
+    }
+}
+
+.side-left {
+    grid-column: 2/ 3;
+
+    @media screen and (max-width: 680px) {
+        grid-column: 1/ -1;
+    }
+}
+
+.social-wrapper {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
+    margin: 10rem 0;
+
+    @media screen and (max-width: 600px) {
+        margin: 0;
+    }
+}
+
+.social-title {
+    flex: 1;
+    color: #ef000d;
+    font-weight: 600;
+    margin-bottom: 3rem;
+}
+
+.social-links {
+    display: flex;
+    width: 100%;
+    justify-content: space-evenly;
+}
+
+.social-link {
+    display: flex;
+    align-items: center;
+    color: black;
+    text-decoration: none;
+    transform: scale(0.9);
+    opacity: .8;
+    transition: all .4s ease-in-out;
+
+    img {
+        max-width: 30px;
+        margin-right: 2rem;
+    }
+
+    &:hover {
+        transform: scale(1);
+        opacity: 1;
     }
 }

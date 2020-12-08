@@ -1,8 +1,10 @@
 import React from 'react';
 
-import './about.style.scss'
+import './homepage.style.scss'
 
-const AboutPage = () => (
+import CatagoriesPage from './../catagories/catagories-component'
+
+const HomePage = () => (
     <div className='section'>
         <div className='section__banner section__banner-1'>
             <div className='section-text side-right'>
@@ -22,6 +24,9 @@ const AboutPage = () => (
         </div>
 
         <div className='section__banner section__banner-3'><span>100% Canadian Beef</span></div>
+
+        <div className='catagories-title'>CATAGORIES</div>
+        <CatagoriesPage />
 
         <div className='details-wrapper'>
             <div className='details-content'>
@@ -53,4 +58,4 @@ const AboutPage = () => (
     </div>
 )
 
-export default AboutPage
+export default HomePage
