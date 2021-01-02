@@ -45,6 +45,7 @@ const SignUp = ({ signUpStart }) => {
                     value={displayName}
                     onChange={handleChange}
                     label="Display Name"
+                    autoComplete='off'
                     required
                 />
                 <FormInput
@@ -53,6 +54,7 @@ const SignUp = ({ signUpStart }) => {
                     value={email}
                     onChange={handleChange}
                     label="Email"
+                    autoComplete='off'
                     required
                 />
                 <FormInput
@@ -74,7 +76,8 @@ const SignUp = ({ signUpStart }) => {
                 {
                     (password !== confirmPassword) ? <div className='error-text'>The passwords do not match</div> : null
                 }
-                <SignButton type="submit">SIGN UP</SignButton>
+                {displayName && email && password && confirmPassword !== '' ? <SignButton type="submit" >SIGN UP</SignButton> : <SignButton type="submit" isDisabled >SIGN UP</SignButton>}
+
             </form>
         </div>
     )

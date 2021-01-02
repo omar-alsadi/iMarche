@@ -62,4 +62,14 @@
         color: black;
         border: .1rem solid black;
     }
+
+    &.disabled {
+        opacity: .5;
+        cursor: auto;
+
+        &:hover {
+            background-color: black;
+            color: white;
+        }
+    }
 }
